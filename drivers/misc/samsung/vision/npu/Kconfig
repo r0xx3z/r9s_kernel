@@ -1,0 +1,1 @@
+source "drivers/misc/samsung/vision/npu/core/Kconfig"

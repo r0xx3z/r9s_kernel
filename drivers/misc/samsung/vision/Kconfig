@@ -1,0 +1,9 @@
+if VISION_SUPPORT
+
+source "drivers/misc/samsung/vision/vision-core/Kconfig"
+
+source "drivers/misc/samsung/vision/dsp/Kconfig"
+
+source "drivers/misc/samsung/vision/npu/Kconfig"
+
+endif # VISION_SUPPORT

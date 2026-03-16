@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: GPL-2.0
+
+if SOC_EXYNOS2100
+
+source "drivers/gpu/drm/samsung/dpu30/Kconfig"
+source "drivers/gpu/drm/samsung/panel/Kconfig"
+source "drivers/gpu/drm/samsung/dp_logger/Kconfig"
+
+endif

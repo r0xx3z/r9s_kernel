@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+comment "Samsung Miscellaneous Drivers"
+
+config SEC_STI
+	tristate "Samsung STI(System Test Infra)"
+	default n
+	help
+		Config to support Samsung STI(System Test Infra) solutions.
+		There are many sub configs to support
+		ABC driver, ABC hub driver, LABO driver and so on.
+		All sub configs depends on config SEC_STI.
+
+config EXYNOS_PASR
+	bool "Exynos PASR driver"
+	depends on MEMORY_HOTPLUG && SOC_SAMSUNG
+	help
+	  This driver allows you to control PASR during suspend state.
+
+config SEC_SENSOR
+    tristate "Samsung SEC Sensor Driver"
+    depends on SOC_SAMSUNG
+    default y
+    help
+      Enable support for Samsung SEC sensor driver.
+
+config SPU_VERIFY
+	tristate "SPU Sign Verify Driver"
+	default n
+	help
+	  This option enables SPU sign verify driver.
+	  When SPU fireware update, image signature verify.
+	  Each firmware is checked by calling a function before updating.
+	  If disable config, maybe Signature checking cause problems.
+
+config DEV_RIL_BRIDGE
+	tristate "Support a bridge between device and RIL"
+	default n
+
+config TRUSTONIC_TEE
+    tristate "Trustonic TEE Driver"
+    depends on ARM || ARM64 && SOC_EXYNOS2100
+    default m
+    ---help---
+      Enable Trustonic TEE support
+
+menuconfig VISION_SUPPORT
+	tristate "Vision Support"
+	select VISION_CORE
+	help
+	  If you want to use hardware acceleration for vision
+	  enable this option and other options below.
+
+comment "MUIC configs"
+config USE_MUIC
+	bool "Using MUIC device driver"
+	depends on I2C
+	default n
+	help
+	  If you say yes here you will get support for
+	  the MUIC device driver.
+
+source "drivers/misc/samsung/sensors_lego/Kconfig"
+source "drivers/misc/samsung/tui/Kconfig"
+source "drivers/misc/samsung/tzdev/Kconfig"
+source "drivers/misc/samsung/vision/Kconfig"
+source "drivers/misc/samsung/abc/Kconfig"
+source "drivers/misc/samsung/gud-exynos2100/Kconfig"
+source "drivers/misc/samsung/bts/Kconfig"
+source "drivers/misc/samsung/muic/Kconfig"
+

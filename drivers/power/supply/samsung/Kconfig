@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: GPL-2.0
+
+source "drivers/power/supply/samsung/common/Kconfig"
+
+source "drivers/power/supply/samsung/charger/max77705_charger/Kconfig"
+
+source "drivers/power/supply/samsung/charger/sm5451_charger/Kconfig"
+
+source "drivers/power/supply/samsung/fuelgauge/max77705_fuelgauge/Kconfig"
+
+source "drivers/power/supply/samsung/wireless/Kconfig"
