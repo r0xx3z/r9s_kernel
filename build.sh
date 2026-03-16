@@ -49,10 +49,19 @@ mkdir -p out
 make O=out clean
 echo ""
 
+############################
 export ARCH=arm64
+
+export PATH="$HOME/android-clang/clang-r522817/bin:$PATH"
+
+export CC=clang
 export LLVM=1
 export LLVM_IAS=1
-export PATH="$HOME/android-clang-r522817/bin:$PATH"
+export CLANG_TRIPLE=aarch64-linux-gnu-
+
+export KBUILD_BUILD_HOST=Archlinux
+export KBUILD_BUILD_USER=Miranda_Kernel
+############################
 
 echo -e "${yellow}**** Kernel defconfig is set to $KERNEL_DEFCONFIG ****${nocol}\n"
 
