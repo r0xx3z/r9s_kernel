@@ -31,7 +31,7 @@ fi
 # Change Configs
 ANYKERNEL3_r9s_DIR="$PWD/AnyKernel3_r9s"
 FINAL_KERNEL_ZIP="Miranda_Kernel-$(date '+%Y%m%d').zip"
-KERNEL_DEFCONFIG="r9s_defconfig"
+KERNEL_DEFCONFIG="xxxxxx"
 
 echo ""
 sleep 1
