@@ -1,5 +1,6 @@
 #!/bin/bash
 #r9s
+#By Ll0rens
 
 #set -e
 
@@ -19,15 +20,16 @@ echo " By Roxx_3z"
 echo -e "############${nocol}\n"
 sleep 1
 
-# Clonar AnyKernel3 solo si no existe
+# Clone AnyKernel3 only if it does not exist
 if [ ! -d "AnyKernel3" ]; then
     echo "Cloning AnyKernel3..."
-    git clone -q https://github.com/ProtonKernel/AnyKernel3.git
+    git clone -q https://github.com/r0xx3z/AnyKernel3_r9s
 else
-    echo "AnyKernel3 directory already exists. Skipping clone."
+    echo "AnyKernel3_r9s directory already exists. Skipping clone."
 fi
 
-ANYKERNEL3_DIR="$PWD/AnyKernel3"
+# Change Configs
+ANYKERNEL3_r9s_DIR="$PWD/AnyKernel3_r9s"
 FINAL_KERNEL_ZIP="Miranda_Kernel-$(date '+%Y%m%d').zip"
 KERNEL_DEFCONFIG="r9s_defconfig"
 
@@ -66,17 +68,17 @@ echo -e "\n**** Verify Image ****"
 ls "$PWD/out/arch/arm64/boot/Image"
 
 echo -e "\n**** Verifying AnyKernel3 Directory ****"
-ls "$ANYKERNEL3_DIR"
+ls "$ANYKERNEL3_r9s_DIR"
 
 echo -e "\n**** Removing leftovers ****"
-rm -f "$ANYKERNEL3_DIR/Image"
-rm -f "$ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP"
+rm -f "$ANYKERNEL3_r9s_DIR/Image"
+rm -f "$ANYKERNEL3_r9s_DIR/$FINAL_KERNEL_ZIP"
 
 echo -e "\n**** Copying Image ****"
-cp "$PWD/out/arch/arm64/boot/Image" "$ANYKERNEL3_DIR/"
+cp "$PWD/out/arch/arm64/boot/Image" "$ANYKERNEL3_r9s_DIR/"
 
 echo -e "\n**** Make kernel.zip! ****"
-cd "$ANYKERNEL3_DIR/"
+cd "$ANYKERNEL3_r9s_DIR/"
 zip -r9 "$FINAL_KERNEL_ZIP" *
 
 echo -e "\n**** MV to BUILDS DIR ****"
