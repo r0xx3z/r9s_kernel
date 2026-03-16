@@ -5,24 +5,9 @@
 ---
 A balanced-performance kernel designed for smooth UI and comfortable daily/gaming use.
 ---
-📱 **DEVICES Support:** 📱
-- Xiaomi Redmi Note 10 Pro [(Sweet/Sweetin)](https://t.me/mir4ndSupport/49) 
-- S21FE vE [(r9s)](https://t.me/mir4ndSupport/6)
-- S20FE vSD [(r8q)](https://t.me/mir4ndSupport/5)
----
+
 - **🧕 Group:**[Miranda AOSP](https://t.me/mir4ndSupport)
 - **🧕 Channel Support:**[Miranda's Kernel](https://t.me/maKernel)
-
----
- 📃DISCLAIMER📃
-- Always backup before flashing
-- !! ONLY FOR AOSP !!
----
-⚠️ **Notes** ⚠️
-- There will be support with Nethunter (Any day)
-- The maintainer of the r8q kernel is lazy
-- Only builds A16
----
 
 
                                  00
