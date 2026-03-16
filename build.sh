@@ -15,14 +15,14 @@ yellow='\033[0;33m'
 red='\033[0;31m'
 nocol='\033[0m'
 
-echo -e "${red}############"
-echo " By Roxx_3z"
-echo -e "############${nocol}\n"
+echo -e "${red}===================="
+echo " By Mirandas Kernel"
+echo -e "====================${nocol}\n"
 sleep 1
 
 # Clone AnyKernel3 only if it does not exist
-if [ ! -d "AnyKernel3" ]; then
-    echo "Cloning AnyKernel3..."
+if [ ! -d "AnyKernel3_r9s" ]; then
+    echo "Cloning AnyKernel3 for R9S..."
     git clone -q https://github.com/r0xx3z/AnyKernel3_r9s
 else
     echo "AnyKernel3_r9s directory already exists. Skipping clone."
@@ -64,6 +64,13 @@ echo -e "************************************${nocol}"
 make $KERNEL_DEFCONFIG O=out 2>&1 | tee $LOG_FILE
 make -j$(nproc --all) O=out 2>&1 | tee -a $LOG_FILE
 
+# Check to stop the script if the kernel did not compile
+if [ ! -f "$PWD/out/arch/arm64/boot/Image" ]; then
+    echo -e "\n${red}**** ERROR: Kernel compilation failed! Image file not found. ****${nocol}"
+    exit 1
+fi
+
+# Initialization of AnyKernel
 echo -e "\n**** Verify Image ****"
 ls "$PWD/out/arch/arm64/boot/Image"
 
