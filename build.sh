@@ -78,28 +78,22 @@ if [ ! -f "$PWD/out/arch/arm64/boot/Image" ]; then
 fi
 
 # Initialization of AnyKernel
-echo -e "\n**** Verify Image ****"
+echo -e "\n Verify Image "
 ls "$PWD/out/arch/arm64/boot/Image"
 
-echo -e "\n**** Verifying AnyKernel3 Directory ****"
+echo -e "\n Verifying AnyKernel3_r9s Directory... "
 ls "$ANYKERNEL3_r9s_DIR"
 
-echo -e "\n**** Removing leftovers ****"
+echo -e "\n Removing leftovers... "
 rm -f "$ANYKERNEL3_r9s_DIR/Image"
 rm -f "$ANYKERNEL3_r9s_DIR/$FINAL_KERNEL_ZIP"
 
-echo -e "\n**** Copying Image ****"
+echo -e "\n Copying Image... "
 cp "$PWD/out/arch/arm64/boot/Image" "$ANYKERNEL3_r9s_DIR/"
 
-echo -e "\n**** Make kernel.zip! ****"
+echo -e "\n Make kernel.zip! "
 cd "$ANYKERNEL3_r9s_DIR/"
 zip -r9 "$FINAL_KERNEL_ZIP" *
-
-echo -e "\n**** MV to BUILDS DIR ****"
-BUILDS_DIR="$HOME/BUILDS"
-mkdir -p "$BUILDS_DIR"
-cp "$FINAL_KERNEL_ZIP" "$BUILDS_DIR/"
-
 
 cd - > /dev/null
 
