@@ -44,7 +44,7 @@ sleep 1
 echo ""
 
 # Clean build always
-echo -e "${cyan}**** Cleaning ****${nocol}"
+echo -e "${cyan} Cleaning ${nocol}"
 mkdir -p out
 make O=out clean
 echo ""
@@ -52,7 +52,7 @@ echo ""
 ############################
 export ARCH=arm64
 
-export PATH="$HOME/android-clang/clang-r522817/bin:$PATH"
+export PATH="$HOME/Clang-x86/clang-r563880/bin:$PATH"
 
 export LLVM=1
 export LLVM_IAS=1
@@ -61,13 +61,13 @@ export KBUILD_BUILD_HOST=Archlinux
 export KBUILD_BUILD_USER=Miranda_Kernel
 ############################
 
-echo -e "${yellow}**** Kernel defconfig is set to $KERNEL_DEFCONFIG ****${nocol}\n"
+echo -e "${yellow} Kernel defconfig is set to $KERNEL_DEFCONFIG ${nocol}\n"
 
 echo -e "${blue}************************************"
 echo "          BUILDING KERNEL          "
 echo -e "************************************${nocol}"
 
-# Guardamos el output en el log usando tee
+#We saved the output to the log using tee
 make $KERNEL_DEFCONFIG O=out 2>&1 | tee $LOG_FILE
 make -j$(nproc --all) O=out 2>&1 | tee -a $LOG_FILE
 
