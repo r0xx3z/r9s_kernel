@@ -2,8 +2,8 @@
 VERSION = 5
 PATCHLEVEL = 4
 SUBLEVEL = 302
-EXTRAVERSION = -Miranda_KernelV1.0
-NAME = Miranda
+EXTRAVERSION = 
+NAME = 
 
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
